@@ -53,4 +53,5 @@ jobs:
       # Run tests from the package folder so Jest definitely runs
       - name: Test (package)
         working-directory: ${{ matrix.target }}
-        run: pnpm run test -- --ci
+        run: pnpm run test
+        
