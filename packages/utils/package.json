@@ -1,6 +1,10 @@
 {
   "name": "@fresh/utils",
   "version": "0.0.1",
-  "main": "src/index.ts",
-  "license": "MIT"
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "jest -c ../../jest.config.ts --runInBand"
+  }
 }
