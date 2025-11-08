@@ -19,3 +19,12 @@ yarn-error.log*
 .turbo/
 .idea/
 .vscode/
+
+# --- Test folder safety rules ---
+# Prevent accidentally created config or lockfiles inside __tests__
+**/__tests__/**/package.json
+**/__tests__/**/pnpm-lock.yaml
+**/__tests__/**/yarn.lock
+**/__tests__/**/package-lock.json
+**/__tests__/**/tsconfig.json
+**/__tests__/**/node_modules/
