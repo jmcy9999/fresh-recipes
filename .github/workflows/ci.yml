@@ -15,6 +15,7 @@ jobs:
         target:
           - ./apps/api
           - ./packages/utils
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,13 +28,15 @@ jobs:
       - name: Install pnpm
         run: |
           npm i -g pnpm@9
-          which pnpm
           pnpm -v
 
-      - name: Install dependencies
+      - name: Install dependencies (workspace root)
         run: pnpm install --frozen-lockfile
 
-      - name: Cache turbo and pnpm store
+      - name: List workspaces (debug)
+        run: pnpm -w list -r --depth -1
+
+      - name: Restore Turbo & pnpm caches
         uses: actions/cache@v4
         with:
           path: |
@@ -43,8 +46,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
 
-      - name: Build (filtered)
+      # --- Turbo-powered steps (filtered by path) ---
+      - name: Build (turbo, filtered)
         run: pnpm turbo run build --cache-dir .turbo --filter="${{ matrix.target }}"
 
-      - name: Test (filtered)
-        run: pnpm turbo run test --filter="${{ matrix.target }}" -- --cirget }} -- --ci
+      - name: Test (turbo, filtered)
+        run: pnpm turbo run test --filter="${{ matrix.target }}" -- --ci
