@@ -1,6 +1,8 @@
-![CI](https://github.com/jmcy9999/fresh-recipes/actions/workflows/ci.yml/badge.svg)
+
 
 # Turborepo starter
+![CI](https://github.com/jmcy9999/fresh-recipes/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/jmcy9999/fresh-recipes/branch/develop/graph/badge.svg?token=<optional_token>)](https://codecov.io/gh/jmcy9999/fresh-recipes)
 
 This Turborepo starter is maintained by the Turborepo core team.
 
