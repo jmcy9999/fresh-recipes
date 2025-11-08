@@ -9,7 +9,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,16 +16,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'          # LTS
-          cache: 'pnpm'
+          node-version: '20'
 
-      - name: Enable Corepack (pnpm)
-        run: corepack enable && corepack prepare pnpm@9 --activate
+      # Explicitly install pnpm so it's on PATH
+      - name: Install pnpm
+        run: |
+          npm i -g pnpm@9
+          which pnpm
+          pnpm -v
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Turbo cache (optional but fast)
+      # Optional: turbo/pnpm caches (keep after pnpm is installed)
+      - name: Cache turbo and pnpm store
         uses: actions/cache@v4
         with:
           path: |
@@ -35,6 +35,9 @@ jobs:
           key: ${{ runner.os }}-turbo-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-turbo-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm turbo run build --cache-dir .turbo
