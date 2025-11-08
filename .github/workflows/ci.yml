@@ -46,9 +46,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
 
-      # --- Turbo-powered steps (filtered by path) ---
+      # Build with Turbo (filtered by path) to get caching & pipeline ordering
       - name: Build (turbo, filtered)
         run: pnpm turbo run build --cache-dir .turbo --filter="${{ matrix.target }}"
 
-      - name: Test (turbo, filtered)
-        run: pnpm turbo run test --filter="${{ matrix.target }}" -- --ci
+      # Run tests from the package folder so Jest definitely runs
+      - name: Test (package)
+        working-directory: ${{ matrix.target }}
+        run: pnpm run test -- --ci
