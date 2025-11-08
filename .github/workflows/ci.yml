@@ -9,12 +9,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-   strategy:
-    fail-fast: false
-    matrix:
-    target:
-      - ./apps/api
-      - ./packages/utils
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - ./apps/api
+          - ./packages/utils
     steps:
       - name: Checkout
         uses: actions/checkout@v4
