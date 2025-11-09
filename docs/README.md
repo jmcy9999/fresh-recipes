@@ -9,5 +9,6 @@ Welcome to the **Fresh Recipes** documentation.
 | [03_CI_CD_Pipeline.md](03_CI_CD_Pipeline.md) | GitHub Actions and Turbo workflow details |
 | [04_Microservice_Layout.md](04_Microservice_Layout.md) | Explanation of apps, packages, and tests |
 | [05_Roadmap.md](05_Roadmap.md) | Multi-phase roadmap and progress tracker |
+| [06_Architecture_Diagram.md](06_Architecture_Diagram.md) | Shows how the platform fits together |
 
 These documents evolve alongside the codebase and are part of version control.
