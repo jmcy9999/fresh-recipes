@@ -24,6 +24,7 @@ This repository is a monorepo containing all application services and shared lib
 | **Next** | `/recipes` route, OpenAPI contract, staging deploy (AWS ECS) | 🟡 In progress |
 
 ## 🧱 Monorepo Structure
+```text
 fresh-recipes/
 ├── apps/
 │   └── api/                # Fastify microservice
@@ -48,6 +49,7 @@ fresh-recipes/
 ├── tsconfig.json              # Root TypeScript config
 ├── package.json               # Root scripts + workspace meta
 └── pnpm-workspace.yaml        # Workspace globs
+```
 
 ## ⚙️ Tooling
 | **Tool** | **Purpose** |
@@ -60,4 +62,4 @@ fresh-recipes/
 | **GitHub Actions** | CI/CD pipeline |
 | **Codecov** | Test coverage reporting |
 
-## 🧩 Getting Started (macOS/Linux)
+
