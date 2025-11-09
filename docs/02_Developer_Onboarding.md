@@ -30,5 +30,14 @@ apps/api           - Fastify microservice
 packages/utils     - Shared utility library
 docs               - Documentation
 
-
+## 🪄 Current Commands
+| **Command** | **Description** |
+|:-------------|:----------------|
+| `pnpm run dev:api` | Start Fastify API locally |
+| `pnpm run build` | Build all apps/packages |
+| `pnpm run test` | Run all tests in the monorepo |
+| `pnpm run test:api` | Run API tests only |
+| `pnpm run test:all` | Run all test tasks via Turbo |
+| `pnpm turbo run dev --filter=@fresh/api` | Run only the API service with Turbo pipeline |
+| `pnpm turbo run build --cache-dir .turbo` | Turbo build with cache directory |
 
